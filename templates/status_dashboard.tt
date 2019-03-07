@@ -18,7 +18,7 @@
 ################################################################
 -->
 [% dashboard_header = BLOCK %]
-<link rel='stylesheet' type='text/css' href='[% url_prefix %]plugins/status-dashboard/thruk/stylesheets/status-dashboard.css' />
+<link rel='stylesheet' type='text/css' href='[% url_prefix %]plugins/status-dashboard/thruk/stylesheets/dashboard.css' />
 [% END %]
 [% PROCESS _header.tt extra_header => dashboard_header %]
 [% PROCESS _message.tt %]
