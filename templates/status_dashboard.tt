@@ -7,7 +7,7 @@
 #
 # OBJET  :    Dashboard plugin
 #
-# DESC   :    Template for dashboard plugin, inspired by overview template
+# DESC   :    Template for status-dashboard plugin, inspired by overview template
 #
 #
 ################################################################
@@ -18,7 +18,7 @@
 ################################################################
 -->
 [% dashboard_header = BLOCK %]
-<link rel='stylesheet' type='text/css' href='[% url_prefix %]plugins/dashboard/thruk/stylesheets/dashboard.css' />
+<link rel='stylesheet' type='text/css' href='[% url_prefix %]plugins/status-dashboard/thruk/stylesheets/status-dashboard.css' />
 [% END %]
 [% PROCESS _header.tt extra_header => dashboard_header %]
 [% PROCESS _message.tt %]
@@ -156,12 +156,12 @@
                             <tr>
                             </tr>
                             <tr>
-                                <td class='info_dashboard_icon'><img src='[% url_prefix %]plugins/dashboard/thruk/images/server_ok.png' border="0" width="20" height="20" alt='OK Hosts' title='OK Hosts'></td>
-                                <td class='info_dashboard_icon'><img src='[% url_prefix %]plugins/dashboard/thruk/images/server_warning.png' border="0" width="20" height="20" alt='Warning Hosts' title='Warning Hosts'></td>
-                                <td class='info_dashboard_icon'><img src='[% url_prefix %]plugins/dashboard/thruk/images/server_error.png' border="0" width="20" height="20" alt='Critical Hosts' title='Critical Hosts'></td>
-                                <td class='info_dashboard_icon'><img src='[% url_prefix %]plugins/dashboard/thruk/images/server_unknown.png' border="0" width="20" height="20" alt='Unknow Hosts' title='Unknow Hosts'></td>
-                                <td class='info_dashboard_icon'><img src='[% url_prefix %]plugins/dashboard/thruk/images/server_ack.png' border="0" width="20" height="20" alt='Acknowledged Hosts' title='Acknowledged Hosts'></td>
-                                <td class='info_dashboard_icon'><img src='[% url_prefix %]plugins/dashboard/thruk/images/server_downtime.png' border="0" width="20" height="20" alt='Scheduled Hosts' title='Scheduled Hosts'></td>
+                                <td class='info_dashboard_icon'><img src='[% url_prefix %]plugins/status-dashboard/thruk/images/server_ok.png' border="0" width="20" height="20" alt='OK Hosts' title='OK Hosts'></td>
+                                <td class='info_dashboard_icon'><img src='[% url_prefix %]plugins/status-dashboard/thruk/images/server_warning.png' border="0" width="20" height="20" alt='Warning Hosts' title='Warning Hosts'></td>
+                                <td class='info_dashboard_icon'><img src='[% url_prefix %]plugins/status-dashboard/thruk/images/server_error.png' border="0" width="20" height="20" alt='Critical Hosts' title='Critical Hosts'></td>
+                                <td class='info_dashboard_icon'><img src='[% url_prefix %]plugins/status-dashboard/thruk/images/server_unknown.png' border="0" width="20" height="20" alt='Unknow Hosts' title='Unknow Hosts'></td>
+                                <td class='info_dashboard_icon'><img src='[% url_prefix %]plugins/status-dashboard/thruk/images/server_ack.png' border="0" width="20" height="20" alt='Acknowledged Hosts' title='Acknowledged Hosts'></td>
+                                <td class='info_dashboard_icon'><img src='[% url_prefix %]plugins/status-dashboard/thruk/images/server_downtime.png' border="0" width="20" height="20" alt='Scheduled Hosts' title='Scheduled Hosts'></td>
                             </tr>
                             <tr>
                                 <td class='info_dashboard_data'><a href='status.cgi?nav=&hidesearch=2&hidetop=&dfl_s0_hoststatustypes=2&dfl_s0_servicestatustypes=31&dfl_s0_hostprops=0&dfl_s0_serviceprops=0&style=detail&update.x=8&update.y=8&dfl_s0_serviceprop=1&dfl_s0_type=[% IF substyle == "host" %]hostgroup[% ELSIF substyle == "service" %]servicegroup[% END %]&dfl_s0_op=%3D&dfl_s0_value=[% group.name %]&dfl_s0_value_sel=5'>[% stats_hosts.up %]</a></td>
