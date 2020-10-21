@@ -3,20 +3,17 @@ use warnings;
 use Test::More;
 
 BEGIN {
-    plan skip_all => 'backends required' if(!-s 'thruk_local.conf' and !defined $ENV{'PLACK_TEST_EXTERNALSERVER_URI'});
-    plan skip_all => 'local test only'   if defined $ENV{'PLACK_TEST_EXTERNALSERVER_URI'};
-    plan skip_all => 'test skipped'      if defined $ENV{'NO_DISABLED_PLUGINS_TEST'};
-    plan tests => 98;
-
-    # enable plugin
-    `cd plugins/plugins-enabled && ln -s ../plugins-available/dashboard .`;
-
     use lib('t');
     require TestUtils;
     import TestUtils;
 }
 
-BEGIN { use_ok 'Thruk::Controller::dashboard' }
+plan skip_all => 'internal test' if $ENV{'PLACK_TEST_EXTERNALSERVER_URI'};
+plan skip_all => 'backends required' if !-s 'thruk_local.conf';
+plan skip_all => 'test skipped'      if defined $ENV{'NO_DISABLED_PLUGINS_TEST'};
+plan tests => 98;
+
+use_ok 'Thruk::Controller::dashboard';
 
 my($host,$service) = TestUtils::get_test_service();
 my $hostgroup      = TestUtils::get_test_hostgroup();
@@ -52,6 +49,3 @@ for my $url (keys %{$redirects}) {
     );
 }
 
-# restore default
-`cd plugins/plugins-enabled && rm -f dashboard`;
-unlink('root/thruk/plugins/dashboard');
