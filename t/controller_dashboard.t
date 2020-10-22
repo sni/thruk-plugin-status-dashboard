@@ -13,6 +13,7 @@ plan skip_all => 'backends required' if !-s 'thruk_local.conf';
 plan skip_all => 'test skipped'      if defined $ENV{'NO_DISABLED_PLUGINS_TEST'};
 plan tests => 98;
 
+unshift @INC, 'plugins/plugins-available/status-dashboard/lib';
 use_ok 'Thruk::Controller::dashboard';
 
 my($host,$service) = TestUtils::get_test_service();
