@@ -1,9 +1,10 @@
 package Thruk::Backend::Provider::Livestatus;
 
-use strict;
 use warnings;
+use strict;
 use Carp;
-use Thruk::Utils;
+
+use Thruk::Utils ();
 
 =head1 NAME
 

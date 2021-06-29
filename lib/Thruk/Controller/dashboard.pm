@@ -1,10 +1,15 @@
 package Thruk::Controller::dashboard;
 
-use strict;
 use warnings;
-use Thruk::Utils::Status;
+use strict;
+
+use Thruk ();
+use Thruk::Backend::Manager ();
 use Thruk::Backend::Provider::DashboardLivestatus;
 use Thruk::Backend::Provider::DashboardHTTP;
+use Thruk::Utils ();
+use Thruk::Utils::Auth ();
+use Thruk::Utils::Status ();
 
 =head1 NAME
 
@@ -52,7 +57,7 @@ sub add_routes {
     Thruk::Utils::Status::add_view({'group' => 'Dashboard',
                                     'name'  => 'Dashboard',
                                     'value' => 'dashboard',
-                                    'url'   => 'dashboard.cgi'
+                                    'url'   => 'dashboard.cgi',
     });
 
     return;

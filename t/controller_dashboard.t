@@ -1,5 +1,5 @@
-use strict;
 use warnings;
+use strict;
 use Test::More;
 
 BEGIN {
@@ -49,4 +49,3 @@ for my $url (keys %{$redirects}) {
         'redirect' => 1,
     );
 }
-
